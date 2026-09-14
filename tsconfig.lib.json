@@ -5,7 +5,11 @@
     "moduleResolution": "bundler",
     "lib": ["ES2022", "DOM"],
     "strict": true,
-    "noEmit": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "outDir": "./dist",
+    "rootDir": "./playCore",
     "skipLibCheck": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
@@ -13,8 +17,7 @@
     "verbatimModuleSyntax": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
-    "noFallthroughCasesInSwitch": true,
-    "types": ["vite/client"]
+    "noFallthroughCasesInSwitch": true
   },
-  "include": ["playCore", "playground", "vite.config.ts"]
+  "include": ["playCore"]
 }

@@ -2,4 +2,4 @@
 
 export const PLAYCORE_VERSION = '1.0.0';
 
-export { createApp, type CreateAppOptions } from './createApp.js';
+export { createApp, type CreateAppOptions } from './createApp';

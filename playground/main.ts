@@ -2,38 +2,44 @@
  * Sandbox de testare. Nu importa din folderul ăsta în proiectele reale —
  * folosește `playCore/`.
  */
-import { Graphics, Text } from 'pixi.js';
-import { PLAYCORE_VERSION, createApp } from '../playCore/index.js';
+import { Graphics } from 'pixi.js';
+import { PLAYCORE_VERSION, createApp } from '../playCore';
+import { PlayCoreText } from '../playCore/playCore.Text';
 
 async function main() {
-  const app = await createApp();
+	const app = await createApp();
 
-  const marker = new Graphics().roundRect(-72, -72, 144, 144, 20).fill(0x6c5ce7);
+	const marker = new Graphics().roundRect(-72, -72, 144, 144, 20).fill(0x6c5ce7);
 
-  const label = new Text({
-    text: `playCore ${PLAYCORE_VERSION}`,
-    style: {
-      fontFamily: 'Segoe UI, sans-serif',
-      fontSize: 22,
-      fill: 0xffffff,
-    },
-  });
-  label.anchor.set(0.5);
+	//testing
 
-  const center = () => {
-    const x = app.screen.width / 2;
-    const y = app.screen.height / 2;
-    marker.position.set(x, y);
-    label.position.set(x, y + 120);
-  };
+	const testText = new PlayCoreText({
+		ref: app.stage,
+		text: `playCore ${PLAYCORE_VERSION}`,
+		style: {
+			fontFamily: 'Arial, sans-serif',
+			fontSize: 22,
+			fontWeight: 'bolder',
+			fill: 0x6c5ce9,
+		},
+	});
 
-  center();
-  app.renderer.on('resize', center);
-  app.stage.addChild(marker, label);
+	function layout() {
+		const x = app.screen.width / 2;
+		const y = app.screen.height / 2;
+		marker.position.set(x, y);
+		testText.position.set(x, y + 120);
+	}
 
-  app.ticker.add((ticker) => {
-    marker.rotation += 0.015 * ticker.deltaTime;
-  });
+	layout();
+	app.renderer.on('resize', layout);
+	app.stage.addChild(marker, testText);
+
+	app.ticker.add((ticker) => {
+		marker.rotation += 0.015 * ticker.deltaTime;
+	});
 }
 
-void main();
+main().catch((error) => {
+	console.error(error);
+});
