@@ -1,0 +1,37 @@
+{
+  "name": "playcore",
+  "version": "0.1.0",
+  "description": "TypeScript PixiJS toolkit (git submodule).",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist",
+    "playCore"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc",
+    "preview": "vite preview"
+  },
+  "peerDependencies": {
+    "pixi.js": "^8.0.0"
+  },
+  "keywords": [
+    "pixi",
+    "pixijs",
+    "typescript"
+  ],
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "pixi.js": "^8.20.1",
+    "typescript": "^7.0.2",
+    "vite": "^6.4.3"
+  }
+}
