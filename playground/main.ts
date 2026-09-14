@@ -18,11 +18,13 @@ async function main() {
 		text: `playCore ${PLAYCORE_VERSION}`,
 		style: {
 			fontFamily: 'Arial, sans-serif',
-			fontSize: 22,
+			fontSize: 120,
 			fontWeight: 'bolder',
 			fill: 0x6c5ce9,
 		},
 	});
+
+	testText.maxWidth = 200;
 
 	function layout() {
 		const x = app.screen.width / 2;
